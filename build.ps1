@@ -1,0 +1,2 @@
+$libFiles = (Get-ChildItem -Path .\lib -Recurse -Include *.jar | ForEach-Object { $_.FullName }) -join ';'
+javac -cp "src;$libFiles" -d "./bin" (Get-ChildItem .\src -Recurse -Include *.java | ForEach-Object { $_.FullName })
